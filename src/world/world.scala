@@ -113,6 +113,7 @@ object World {
 
   private def driver(world: World): Unit = {
     println(s"canvas size: ${canvas.size}")
+    canvas.repaint()
     currentThread = Thread.currentThread
     currentWorld = world
     while (true) {
@@ -145,7 +146,6 @@ object World {
   def bigbang2d(world: World, window_title: String, width: Int, height: Int): Unit = {
     canvas.preferredSize = (width, height)
     hasCanvas = true
-    canvas.repaint()
 
     val frame = new Frame {
       title = window_title

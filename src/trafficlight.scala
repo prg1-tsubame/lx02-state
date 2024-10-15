@@ -31,7 +31,7 @@ case class Light(color: Color, tick_ms: Int) extends World(tick_ms) {
       case Green => Yellow
       case Yellow => Red
     }
-    Light(c, 2000)
+    Light(c, tick_ms)
   }
 }
 
