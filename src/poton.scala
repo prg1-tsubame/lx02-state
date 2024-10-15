@@ -43,7 +43,7 @@ case class Poton(centerX: Int, centerY: Int, tick_ms: Int) extends World(tick_ms
       case ' ' => Poton(centerX, maxY, tick_ms)
       case 'h' => Poton(max(minX, centerX - 5), centerY, tick_ms)
       case 'l' => Poton(min(centerX + 5, maxX), centerY, tick_ms)
-      case _             => Poton(centerX, centerY, tick_ms)
+      case _   => Poton(centerX, centerY, tick_ms)
     }
   }
 }
