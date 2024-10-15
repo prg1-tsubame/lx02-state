@@ -23,15 +23,15 @@ case class Poton(centerX: Int, centerY: Int, tick_ms: Int) extends World(tick_ms
   if (World.debug) println((s, centerX, centerY))
 
   override def draw() = {
-    drawRect(Pos(0, 0), s.width, s.height, White)    // 画面消去
-    drawRect(Pos(10, maxY - 10), holeX - 10, 20, Green)        // 左方の草原の描画
-    drawRect(                                                  // 右方の草原の描画
+    drawRect(Pos(0, 0), s.width, s.height, White)        // 画面消去
+    drawRect(Pos(10, maxY - 10), holeX - 10, 20, Green)  // 左方の草原の描画
+    drawRect(                                            // 右方の草原の描画
       Pos(holeX + (BallRadius * 2 + 10), maxY - 10),     // 矩形の位置: Pos(x, y)
-      s.width - (holeX + (BallRadius * 2 + 10)),    // 矩形の幅
+      s.width - (holeX + (BallRadius * 2 + 10)),         // 矩形の幅
       20,                                                // 矩形の高さ
       Green                                              // 塗り潰し色
     )
-    drawDisk(Pos(centerX, centerY), BallRadius, Blue)          // ボール
+    drawDisk(Pos(centerX, centerY), BallRadius, Blue)    // ボール
   }
 
   override def tick(): World = {
@@ -43,7 +43,7 @@ case class Poton(centerX: Int, centerY: Int, tick_ms: Int) extends World(tick_ms
       case ' ' => Poton(centerX, maxY, tick_ms)
       case 'h' => Poton(max(minX, centerX - 5), centerY, tick_ms)
       case 'l' => Poton(min(centerX + 5, maxX), centerY, tick_ms)
-      case _   => Poton(centerX, centerY, tick_ms)
+      case _             => Poton(centerX, centerY, tick_ms)
     }
   }
 }
