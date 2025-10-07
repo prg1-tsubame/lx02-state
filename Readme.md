@@ -19,13 +19,13 @@ Windows でこの sbt プロジェクトを使う場合は、日本語出力が�
 
 状態の表現方法を変えた実装例。
 
-# [交通信号の例2](src/scheduledtrafficlight.scala)
-
-色を変えるタイミングを色ごとに変更した交通信号の例。
-
 # [オートマトンの例](src/automaton.scala)
 
 オートマトンの状態遷移をシミュレート。
+
+# [交通信号の例2](src/scheduledtrafficlight.scala)
+
+色を変えるタイミングを色ごとに変更した交通信号の例。
 
 # [ポトンの例](src/poton.scala)
 

@@ -14,6 +14,7 @@ val SECS_FOR_RED    = 7
 val SECS_FOR_GREEN  = 5
 val SECS_FOR_YELLOW = 2
 
+// 色と残り時間の組合せ (color, waitFor) によって状態を表現した例
 case class ScheduledLight(color: Color, waitFor: Int, tick_ms: Int) extends World(tick_ms) {
   /**
    * 信号を描画する。円を塗り潰しているだけ。
