@@ -1,6 +1,7 @@
 .*
 !.gitignore
 past/*
+project/build.properties
 project/metals.sbt
 project/project/
 target/
