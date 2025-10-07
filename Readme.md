@@ -7,7 +7,7 @@ Windows でこの sbt プロジェクトを使う場合は、日本語出力が�
       run / connectInput  := true,
 ~~~
 
-# [交通信号の例](src/trafficlight.scala)
+# [交通信号の例1](src/trafficlight.scala)
 
 時々刻々、色を変える交通信号をシミュレート。
 
@@ -18,6 +18,10 @@ Windows でこの sbt プロジェクトを使う場合は、日本語出力が�
 # [タイマーの例2](src/timer2.scala)
 
 状態の表現方法を変えた実装例。
+
+# [交通信号の例2](src/scheduledtrafficlight.scala)
+
+色を変えるタイミングを色ごとに変更した交通信号の例。
 
 # [オートマトンの例](src/automaton.scala)
 

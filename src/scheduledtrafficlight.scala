@@ -1,4 +1,4 @@
-package prg1.lx02.traffic_light
+package prg1.lx02.scheduled_traffic_light
 
 // bug: 最初の2秒赤信号が点灯しない。canvas.repaint のタイミングエラーか？
 
@@ -10,7 +10,11 @@ val Red    = Color(JColor.red)
 val Green  = Color(JColor.green)
 val Yellow = Color(JColor.yellow)
 
-case class Light(color: Color, tick_ms: Int) extends World(tick_ms) {
+val SECS_FOR_RED    = 7
+val SECS_FOR_GREEN  = 5
+val SECS_FOR_YELLOW = 2
+
+case class ScheduledLight(color: Color, waitFor: Int, tick_ms: Int) extends World(tick_ms) {
   /**
    * 信号を描画する。円を塗り潰しているだけ。
    **/
@@ -23,17 +27,18 @@ case class Light(color: Color, tick_ms: Int) extends World(tick_ms) {
   }
 
   /**
-   * 信号の状態の遷移
+   * 信号の状態の遷
    **/
   override def tick(): World = {
-    val c = color match {
-      case Red => Green
-      case Green => Yellow
-      case Yellow => Red
-      case _ => color
+    println(waitFor)
+    val (c, w) = (color, waitFor) match {
+      case (Red, 1) => (Green, SECS_FOR_GREEN)
+      case (Green, 1) => (Yellow, SECS_FOR_YELLOW)
+      case (Yellow, 1) => (Red, SECS_FOR_RED)
+      case _ => (color, waitFor - 1)
     }
-    Light(c, tick_ms)
+    ScheduledLight(c, w, tick_ms)
   }
 }
 
-@main def run = World.bigbang2d(new Light(Red, 2000), "Traffic Light", 300, 300)
+@main def run = World.bigbang2d(new ScheduledLight(Red, SECS_FOR_RED, 2000), "Scheduled Traffic Light", 300, 300)
