@@ -37,4 +37,4 @@ case class Light(color: Color, tick_ms: Int) extends World(tick_ms) {
 }
 
 // Scala では引数を取らない関数の場合は括弧を省略することができます。
-@main def run = World.bigbang2d(new Light(Red, 2000), "Traffic Light", 300, 300)
+@main def run = World.bigbang2d(new Light(Red, 1000), "Traffic Light", 300, 300)
