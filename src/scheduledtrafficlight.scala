@@ -42,4 +42,4 @@ case class ScheduledLight(color: Color, waitFor: Int, tick_ms: Int) extends Worl
   }
 }
 
-@main def run = World.bigbang2d(new ScheduledLight(Red, SECS_FOR_RED, 2000), "Scheduled Traffic Light", 300, 300)
+@main def run = World.bigbang2d(new ScheduledLight(Red, SECS_FOR_RED, 1000), "Scheduled Traffic Light", 300, 300)
